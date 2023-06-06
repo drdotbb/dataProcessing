@@ -1,0 +1,88 @@
+Reading and Processing Data:
+      filename        time  ax (m/s^2)  ...  normalized_aT  stepCount  stepTime
+2999      Brad   15.220204    -11.8880  ...      -0.001091          1  0.000000
+3139      Brad   15.879804      5.5821  ...       0.003398          2  0.659600
+3258      Brad   16.440421     -4.3319  ...      -0.000698          3  0.560617
+3383      Brad   17.029245     10.7640  ...       0.001465          4  0.588824
+3500      Brad   17.580682     -8.7918  ...      -0.001069          5  0.551437
+...        ...         ...         ...  ...            ...        ...       ...
+44183  Jerrick  441.641555     10.6300  ...       0.002696        333  0.461810
+44913  Jerrick  448.936681     -0.2600  ...      -0.001459        334  7.295126
+44937  Jerrick  449.177158      0.8600  ...       0.001496        335  0.240477
+45123  Jerrick  451.035835    -23.9800  ...      -0.003703        336  1.858677
+45195  Jerrick  451.761217     12.1900  ...       0.000607        337  0.725382
+
+[3607 rows x 9 columns]
+ 
+Modelling Data:
+X_train structure:
+       ax (m/s^2)  ay (m/s^2)  az (m/s^2)  aT (m/s^2)  normalized_aT  stepTime
+22761     12.9361      2.3201      8.7214      15.773       0.000921  0.520679
+21561     -0.4300      0.0300     -1.9200       1.960      -0.002835  0.886553
+19413    -31.1500      5.0700      6.9000      32.300      -0.000301  0.220273
+5618       0.8618     -0.2344      3.3945       3.510      -0.000888  0.089553
+45728      2.3825      1.4338     -1.3343       3.084       0.002173  0.148482
+...           ...         ...         ...         ...            ...       ...
+38440      2.2229     -3.3110      0.7637       4.060      -0.000069  0.157489
+23780     -1.8455     -1.3277      1.7941       2.896      -0.000141  0.632007
+51247     -2.8746     -1.6422      1.6633       3.705      -0.001791  0.628954
+51776      7.2434     -0.7491     -1.2861       7.395      -0.007342  0.604599
+16645     -4.1249     -0.5549      0.5582       4.199      -0.002079  0.600170
+
+[2705 rows x 6 columns]
+Y_train strucutre:
+22761       Brad
+21561    Jerrick
+19413    Jerrick
+5618        Brad
+45728     Jeremy
+          ...   
+38440       Brad
+23780     Jeremy
+51247     Jeremy
+51776       Brad
+16645     Jeremy
+Name: filename, Length: 2705, dtype: object
+Bayes Model:
+0.5875831485587583
+ 
+KNN Model:
+0.8159645232815964
+ 
+KNN with more Neighbours:
+0.8170731707317073
+ 
+KNN with most Neighbours:
+0.8093126385809313
+ 
+RF Model:
+0.7439024390243902
+ 
+RF with more trees:
+0.7416851441241685
+ 
+RF with more depth:
+0.8636363636363636
+ 
+RF with more Trees and Depth:
+0.8603104212860311
+ 
+MODEL WITH THE HIGHEST SCORE TO BE USED:RF with more depth
+ 
+Testing predictions
+     predicted_values actual_values  is_correct_prediction
+0              Jeremy          Brad                  False
+1              Jeremy          Brad                  False
+2                Brad          Brad                   True
+3                Brad          Brad                   True
+4                Brad          Brad                   True
+...               ...           ...                    ...
+1301          Jerrick       Jerrick                   True
+1302          Jerrick       Jerrick                   True
+1303          Jerrick       Jerrick                   True
+1304          Jerrick       Jerrick                   True
+1305          Jerrick       Jerrick                   True
+
+[1306 rows x 3 columns]
+ 
+TOTAL CORRECT: 958 OUT OF 1306 : 0.7335375191424196% CORRECT
